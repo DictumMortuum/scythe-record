@@ -10,6 +10,7 @@
 (enable-console-print!)
 
 (def title (utils/generate-name))
+(def today (.toDateString (js/Date.)))
 
 (defonce app-state (atom {:db         (db/create-db "https://dictummortuum.cloudant.com/scythe" {:skip_setup true})
                           :user       ""
@@ -37,6 +38,7 @@
       (->> (db/all-docs (:db @app-state) {:include_docs true})
            (<!)
            (:rows)
+           (filter #(= (-> % :id js/Date. .toDateString) today))
            (map :doc)
            (map :game)
            (distinct)

@@ -18,8 +18,6 @@
 (defn post-save [state x]
   (println x))
 
-(utils/generate-name)
-
 (defn drop-down-input [label selected options]
   [:div
    [:label label]
