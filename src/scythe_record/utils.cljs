@@ -1,6 +1,8 @@
 (ns scythe-record.utils
     (:require [reagent.core :as reagent :refer [atom]]
-              [cljs.core.async :as async :refer [put! <! >! timeout chan]])
+              [cljs.core.async :as async :refer [put! <! >! timeout chan]]
+              [scythe-record.noun :as noun]
+              [scythe-record.adjective :as adjective])
     (:require-macros [cljs.core.async.macros :refer [go go-loop]]))
 
 (defn generate-id []
@@ -17,6 +19,9 @@
            (<!)
            (consequences state))
       (reset! animation false))))
+
+(defn generate-name []
+  (str (rand-nth adjective/adjectives) "-" (rand-nth noun/nouns)))
 
 (defn loading []
   [:div.la-ball-grid-pulse

@@ -13,7 +13,8 @@
                  [org.clojure/core.async  "0.3.443"]
                  [reagent "0.7.0"]
                  [cljsjs/pouchdb "6.3.4-0"]
-                 [cljsjs/pouchdb-authentication "0.5.5-0"]]
+                 [cljsjs/pouchdb-authentication "0.5.5-0"]
+                 [faker "0.2.2"]]
 
   :plugins [[lein-figwheel "0.5.14"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
