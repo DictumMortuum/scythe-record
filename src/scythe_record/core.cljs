@@ -12,17 +12,20 @@
 (def title (utils/generate-name))
 (def today (.toDateString (js/Date.)))
 
-(defonce app-state (atom {:db         (db/create-db "https://dictummortuum.cloudant.com/scythe" {:skip_setup true})
-                          :user       ""
-                          :pass       ""
-                          :logged     false
-                          :animation  false
-                          :countries  ["" "Saxony" "Rusviet" "Nordic" "Polania" "Crimea" "Albion" "Togawa"]
-                          :boards     ["" "Industrial" "Engineering" "Patriotic" "Mechanical" "Agricultural" "Innovative" "Militant"]
-                          :objectives ["" "Upgrade" "Deploy" "Build" "Enlist" "Worker" "Objective" "Battle" "Power" "Popularity"]
-                          :players    ["" "Dimitris" "Panagiotis" "Elena" "Kostas" "Kalliopi" "Giorgos"]
-                          :games      [title]
-                          :play       {:game title}}))
+(defonce app-state (atom {:db          (db/create-db "https://dictummortuum.cloudant.com/scythe" {:skip_setup true})
+                          :user        ""
+                          :pass        ""
+                          :logged      false
+                          :animation   false
+                          :countries   ["" "Saxony" "Rusviet" "Nordic" "Polania" "Crimea" "Albion" "Togawa"]
+                          :boards      ["" "Industrial" "Engineering" "Patriotic" "Mechanical" "Agricultural" "Innovative" "Militant"]
+                          :objectives  ["" "Upgrade" "Deploy" "Build" "Enlist" "Worker" "Objective" "Battle" "Power" "Popularity"]
+                          :players     ["" "Dimitris" "Panagiotis" "Elena" "Kostas" "Kalliopi" "Giorgos"]
+                          :resolutions ["" "Dejavu" "Mission Possible" "Factory Explosion" "Doomsday Clock"]
+                          :aggressive  ["" "Toll" "Blietzkrieg"]
+                          :passive     ["" "Drill" "Ferry"]
+                          :games       [title]
+                          :play        {:game title}}))
 
 (defn check-cookie []
   (go
